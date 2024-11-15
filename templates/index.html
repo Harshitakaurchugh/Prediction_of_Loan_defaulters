@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Loan Default Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        form {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 30px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #4CAF50;
+        }
+        label {
+            font-weight: bold;
+            margin-bottom: 8px;
+            display: block;
+        }
+        input[type="number"], select {
+            width: 100%;
+            height: 45px;
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: border-color 0.3s;
+        }
+        input[type="number"]:focus, select:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+        input[type="reset"], input[type="submit"] {
+            width: 100%;
+            height: 45px;
+            margin-bottom: 20px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        input[type="reset"]:hover, input[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+        p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <h2>Enter Loan Details to Predict Default</h2>
+    <form action="/predict" method="post">
+        <label>Age:</label><input type="number" name="Age"><br>
+        <label>Income:</label><input type="number" name="Income"><br>
+        <label>Loan Amount:</label><input type="number" name="LoanAmount"><br>
+        <label>Credit Score:</label><input type="number" name="CreditScore"><br>
+        <label>Months Employed:</label><input type="number" name="MonthsEmployed"><br>
+        <label>Number of Credit Lines:</label><input type="number" name="NumCreditLines"><br>
+        <label>Interest Rate:</label><input type="number" name="InterestRate"><br>
+        <label>Loan Term:</label><input type="number" name="LoanTerm"><br>
+        <label>DTI Ratio:</label><input type="number" name="DTIRatio"><br>
+        <label>Has Mortgage (0 or 1):</label><input type="number" name="HasMortgage"><br>
+        <label>Has Dependents (0 or 1):</label><input type="number" name="HasDependents"><br>
+        <label>Has Co-Signer (0 or 1):</label><input type="number" name="HasCoSigner"><br>
+        <label>Loan to Income Ratio:</label><input type="number" name="LoanToIncomeRatio"><br>
+        <label>Credit Utilization Rate:</label><input type="number" name="CreditUtilizationRate"><br>
+
+        <!-- Education -->
+        <label>Education (High School):</label><input type="number" name="Education_HighSchool"><br>
+        <label>Education (Master's):</label><input type="number" name="Education_Masters"><br>
+        <label>Education (PhD):</label><input type="number" name="Education_PhD"><br>
+
+        <!-- Employment Type -->
+        <label>Employment Type (Part-time):</label><input type="number" name="EmploymentType_PartTime"><br>
+        <label>Employment Type (Self-employed):</label><input type="number" name="EmploymentType_SelfEmployed"><br>
+        <label>Employment Type (Unemployed):</label><input type="number" name="EmploymentType_Unemployed"><br>
+
+        <!-- Marital Status -->
+        <label>Marital Status (Married):</label><input type="number" name="MaritalStatus_Married"><br>
+        <label>Marital Status (Single):</label><input type="number" name="MaritalStatus_Single"><br>
+
+        <!-- Loan Purpose -->
+        <label>Loan Purpose (Business):</label><input type="number" name="LoanPurpose_Business"><br>
+        <label>Loan Purpose (Education):</label><input type="number" name="LoanPurpose_Education"><br>
+        <label>Loan Purpose (Home):</label><input type="number" name="LoanPurpose_Home"><br>
+        <label>Loan Purpose (Other):</label><input type="number" name="LoanPurpose_Other"><br>
+
+        <button type="submit">Predict Default</button>
+    </form>
+
+    {% if prediction_text %}
+        <h3>{{ prediction_text }}</h3>
+    {% endif %}
+</body>
+</html>
