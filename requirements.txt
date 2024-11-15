@@ -1,0 +1,13 @@
+scikit-learn
+numpy
+pandas
+seaborn
+matplotlib
+plotly
+ydata-profiling
+ipywidgets
+nbformat
+catboost
+xgboost
+lightgbm
+flask
